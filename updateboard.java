@@ -1,14 +1,11 @@
 public class updateboard {
   public static void main(String[] args) {
 
-    String[][][] board = createSampleBoard();
+    String[][][] board = new String[9][3][3];
     draw3DBoard(board);
   }
 
   public static void draw3DBoard(String[][][] board) {
-    if (board == null || board.length != 9) {
-      throw new IllegalArgumentException("Board must be a 3x3x3 structure with 9 blocks.");
-    }
 
     for (int outerRow = 0; outerRow < 3; outerRow++) {
       for (int innerRow = 0; innerRow < 3; innerRow++) {
@@ -40,9 +37,4 @@ public class updateboard {
     }
   }
 
-  private static String[][][] createSampleBoard() {
-    String[][][] board = new String[9][3][3];
-
-    return board;
-  }
 }
