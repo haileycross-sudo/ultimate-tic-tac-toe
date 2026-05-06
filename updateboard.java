@@ -3,6 +3,7 @@ public class updateboard {
 
     String[][][] board = new String[9][3][3];
     draw3DBoard(board);
+    
   }
 
   public static void draw3DBoard(String[][][] board) {
@@ -32,9 +33,8 @@ public class updateboard {
       }
 
       if (outerRow < 2) {
-        System.out.println("=======++=======++=======");
+        System.out.println("========++========++========");
       }
     }
   }
-
 }
