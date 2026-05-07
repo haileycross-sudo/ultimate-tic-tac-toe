@@ -105,9 +105,6 @@ public class gamelogic {
                 !updateboard.board[block][0][2].equals("-")) {
             System.out.println("Player " + updateboard.board[block][0][2] + " wins!");
             System.exit(0);
-        } else if (isBoardFull(block)) {
-            System.out.println("It's a draw!");
-            System.exit(0);
         }
 
     }
