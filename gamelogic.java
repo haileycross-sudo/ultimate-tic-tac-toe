@@ -40,14 +40,12 @@ public class gamelogic {
         }
 
         if (win) {
-            System.out.println("Player X wins block " + block);
-            for (int i = 0; i<updateboard.board.length; i++) {
-                for (int j = 0; j<updateboard.board[i].length; j++) {
-                    for (int k = 0; k<updateboard.board[i][j].length; k++) {
-                        updateboard.board[i][j][k] = "X";
+            System.out.println("Player X wins block " + (block + 1));
+                for (int j = 0; j<updateboard.board[block].length; j++) {
+                    for (int k = 0; k<updateboard.board[block][j].length; k++) {
+                        updateboard.board[block][j][k] = "X";
                     }
                 }
-            }
             updateboard.draw3DBoard(updateboard.board);
         }
 
@@ -74,14 +72,12 @@ public class gamelogic {
         }
 
         if (win) {
-            System.out.println("Player O wins block " + block);
-            for (int i = 0; i<updateboard.board.length; i++) {
-                for (int j = 0; j<updateboard.board[i].length; j++) {
-                    for (int k = 0; k<updateboard.board[i][j].length; k++) {
-                        updateboard.board[i][j][k] = "O";
+            System.out.println("Player O wins block " + (block + 1));
+                for (int j = 0; j<updateboard.board[block].length; j++) {
+                    for (int k = 0; k<updateboard.board[block][j].length; k++) {
+                        updateboard.board[block][j][k] = "O";
                     }
                 }
-            }
             updateboard.draw3DBoard(updateboard.board);
         }
 
@@ -93,42 +89,34 @@ public class gamelogic {
         if (updateboard.board[block][0][0].equals(updateboard.board[block][0][1]) &&
                 updateboard.board[block][0][1].equals(updateboard.board[block][0][2]) &&
                 !updateboard.board[block][0][0].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][0] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][1][0].equals(updateboard.board[block][1][1]) &&
                 updateboard.board[block][1][1].equals(updateboard.board[block][1][2]) &&
                 !updateboard.board[block][1][0].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][1][0] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][2][0].equals(updateboard.board[block][2][1]) &&
                 updateboard.board[block][2][1].equals(updateboard.board[block][2][2]) &&
                 !updateboard.board[block][2][0].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][2][0] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][0][0].equals(updateboard.board[block][1][0]) &&
                 updateboard.board[block][1][0].equals(updateboard.board[block][2][0]) &&
                 !updateboard.board[block][0][0].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][0] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][0][1].equals(updateboard.board[block][1][1]) &&
                 updateboard.board[block][1][1].equals(updateboard.board[block][2][1]) &&
                 !updateboard.board[block][0][1].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][1] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][0][2].equals(updateboard.board[block][1][2]) &&
                 updateboard.board[block][1][2].equals(updateboard.board[block][2][2]) &&
                 !updateboard.board[block][0][2].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][2] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][0][0].equals(updateboard.board[block][1][1]) &&
                 updateboard.board[block][1][1].equals(updateboard.board[block][2][2]) &&
                 !updateboard.board[block][0][0].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][0] + " wins block " + block);
             win = true;
         } else if (updateboard.board[block][0][2].equals(updateboard.board[block][1][1]) &&
                 updateboard.board[block][1][1].equals(updateboard.board[block][2][0]) &&
                 !updateboard.board[block][0][2].equals("-")) {
-            System.out.println("Player " + updateboard.board[block][0][2] + " wins block " + block);
             win = true;
         }
 
