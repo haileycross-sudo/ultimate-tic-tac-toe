@@ -24,6 +24,9 @@ public class gamelogic {
 
         System.out.println("Player X");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
+
+        check4Empty();
+
         System.out.println("Row Number (1-3)");
         row = Integer.parseInt(System.console().readLine()) - 1;
         System.out.println("Column Number (1-3)");
@@ -41,11 +44,13 @@ public class gamelogic {
 
         if (win) {
             System.out.println("Player X wins block " + (block + 1));
-                for (int j = 0; j<updateboard.board[block].length; j++) {
-                    for (int k = 0; k<updateboard.board[block][j].length; k++) {
-                        updateboard.board[block][j][k] = "X";
-                    }
+            for (int b = 0; b<updateboard.board[block].length; b++) {
+                for (int i = 0; i<updateboard.board[block][b].length; i++) {
+                    updateboard.board[block][b][i] = "X";
                 }
+            }
+
+            win = false;
             updateboard.draw3DBoard(updateboard.board);
         }
 
@@ -56,6 +61,9 @@ public class gamelogic {
 
         System.out.println("Player O");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
+
+        check4Empty();
+
         System.out.println("Row Number (1-3)");
         row = Integer.parseInt(System.console().readLine()) - 1;
         System.out.println("Column Number (1-3)");
@@ -73,16 +81,17 @@ public class gamelogic {
 
         if (win) {
             System.out.println("Player O wins block " + (block + 1));
-                for (int j = 0; j<updateboard.board[block].length; j++) {
-                    for (int k = 0; k<updateboard.board[block][j].length; k++) {
-                        updateboard.board[block][j][k] = "O";
-                    }
-                }
-            updateboard.draw3DBoard(updateboard.board);
+            for (int b = 0; b<updateboard.board[block].length; b++) {
+                for (int i = 0; i<updateboard.board[block][b].length; i++) {
+                    updateboard.board[block][b][i] = "O";
+                }                
+            }
+                win = false;
+                updateboard.draw3DBoard(updateboard.board);
         }
 
         block = row * 3 + col;
-    }
+} 
 
     public static void checkThreeInRow() {
 
@@ -119,7 +128,23 @@ public class gamelogic {
                 !updateboard.board[block][0][2].equals("-")) {
             win = true;
         }
-
     }
-        
+
+    public static void check4Empty(){
+
+        boolean empty = false;
+
+        for (int j = 0; j<updateboard.board[block][j].length; j++) {
+            for (int k = 0; k<updateboard.board[block][j].length; k++) {
+                if (updateboard.board[block][j][k].equals("-")) {
+                    empty = true;
+                }
+            }
+        }
+
+        if (!empty) {
+            System.out.println("Block " + (block + 1) + " is full. Choose a different block.");
+            block = Integer.parseInt(System.console().readLine()) - 1;
+        }
+    }
 }
