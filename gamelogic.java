@@ -1,6 +1,8 @@
 public class gamelogic {
 
     public static int block = 4;
+    public static int row = 0;
+    public static int col = 0;
 
     public static void main(String[] args) {
 
@@ -10,8 +12,7 @@ public class gamelogic {
 
         boolean win = false;
 
-        System.out.println("Player 1 is X and Player 2 is O.");
-        System.out.println("Game starts in 4th Block");
+        System.out.println("Game starts in 5th Block");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=|");
 
         while (!win) {
@@ -22,12 +23,12 @@ public class gamelogic {
 
     public static void loopX(String[] args) {
 
-        System.out.println("Player 1");
+        System.out.println("Player X");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
         System.out.println("Row Number (1-3)");
-        int row = Integer.parseInt(System.console().readLine()) - 1;
+        row = Integer.parseInt(System.console().readLine()) - 1;
         System.out.println("Column Number (1-3)");
-        int col = Integer.parseInt(System.console().readLine()) - 1;
+        col = Integer.parseInt(System.console().readLine()) - 1;
 
         if (updateboard.board[block][row][col].equals("-")) {
             updateboard.board[block][row][col] = "X";
@@ -43,15 +44,15 @@ public class gamelogic {
 
     public static void loopO(String[] args) {
 
-        System.out.println("Player 2");
+        System.out.println("Player O");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
         System.out.println("Row Number (1-3)");
-        int row2 = Integer.parseInt(System.console().readLine()) - 1;
+        row = Integer.parseInt(System.console().readLine()) - 1;
         System.out.println("Column Number (1-3)");
-        int col2 = Integer.parseInt(System.console().readLine()) - 1;
+        col = Integer.parseInt(System.console().readLine()) - 1;
 
-        if (updateboard.board[block][row2][col2].equals("-")) {
-            updateboard.board[block][row2][col2] = "O";
+        if (updateboard.board[block][row][col].equals("-")) {
+            updateboard.board[block][row][col] = "O";
             updateboard.draw3DBoard(updateboard.board);
         } else {
             System.out.println("Invalid move. Try again.");
@@ -59,6 +60,56 @@ public class gamelogic {
             return;
         }
 
-        block = row2 * 3 + col2;
+        block = row * 3 + col;
     }
+
+    public static void threeInRow() {
+
+        if (updateboard.board[block][0][0].equals(updateboard.board[block][0][1]) &&
+                updateboard.board[block][0][1].equals(updateboard.board[block][0][2]) &&
+                !updateboard.board[block][0][0].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][0] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][1][0].equals(updateboard.board[block][1][1]) &&
+                updateboard.board[block][1][1].equals(updateboard.board[block][1][2]) &&
+                !updateboard.board[block][1][0].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][1][0] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][2][0].equals(updateboard.board[block][2][1]) &&
+                updateboard.board[block][2][1].equals(updateboard.board[block][2][2]) &&
+                !updateboard.board[block][2][0].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][2][0] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][0][0].equals(updateboard.board[block][1][0]) &&
+                updateboard.board[block][1][0].equals(updateboard.board[block][2][0]) &&
+                !updateboard.board[block][0][0].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][0] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][0][1].equals(updateboard.board[block][1][1]) &&
+                updateboard.board[block][1][1].equals(updateboard.board[block][2][1]) &&
+                !updateboard.board[block][0][1].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][1] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][0][2].equals(updateboard.board[block][1][2]) &&
+                updateboard.board[block][1][2].equals(updateboard.board[block][2][2]) &&
+                !updateboard.board[block][0][2].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][2] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][0][0].equals(updateboard.board[block][1][1]) &&
+                updateboard.board[block][1][1].equals(updateboard.board[block][2][2]) &&
+                !updateboard.board[block][0][0].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][0] + " wins!");
+            System.exit(0);
+        } else if (updateboard.board[block][0][2].equals(updateboard.board[block][1][1]) &&
+                updateboard.board[block][1][1].equals(updateboard.board[block][2][0]) &&
+                !updateboard.board[block][0][2].equals("-")) {
+            System.out.println("Player " + updateboard.board[block][0][2] + " wins!");
+            System.exit(0);
+        } else if (isBoardFull(block)) {
+            System.out.println("It's a draw!");
+            System.exit(0);
+        }
+
+    }
+        
 }
