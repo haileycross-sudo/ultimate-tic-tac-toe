@@ -41,10 +41,10 @@ public class gamelogic {
 
         if (win) {
             System.out.println("Player X wins block " + block);
-            for (int i; i<board.length; i++) {
-                for (int j; j<board[i].length; j++) {
-                    for (int k; k<board[i][j].length; k++) {
-                        board[i][j][k] = "X";
+            for (int i = 0; i<updateboard.board.length; i++) {
+                for (int j = 0; j<updateboard.board[i].length; j++) {
+                    for (int k = 0; k<updateboard.board[i][j].length; k++) {
+                        updateboard.board[i][j][k] = "X";
                     }
                 }
             }
@@ -75,10 +75,10 @@ public class gamelogic {
 
         if (win) {
             System.out.println("Player O wins block " + block);
-            for (int i; i<board.length; i++) {
-                for (int j; j<board[i].length; j++) {
-                    for (int k; k<board[i][j].length; k++) {
-                        board[i][j][k] = "O";
+            for (int i = 0; i<updateboard.board.length; i++) {
+                for (int j = 0; j<updateboard.board[i].length; j++) {
+                    for (int k = 0; k<updateboard.board[i][j].length; k++) {
+                        updateboard.board[i][j][k] = "O";
                     }
                 }
             }
