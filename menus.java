@@ -1,12 +1,15 @@
+import java.util.Scanner;
 public class menus {
   public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
 
     System.out.println("Welcome to Ultimate Tic Tac Toe!");
     System.out.println("1. Start Game");
     System.out.println("2. Instructions");
     System.out.println("3. Exit");
     System.out.print("Choose an option: ");
-    int choice = Integer.parseInt(System.console().readLine());
+    int choice = Integer.parseInt(scanner.nextLine());
 
     if(choice == 1) {
       System.out.println("Starting game...");
