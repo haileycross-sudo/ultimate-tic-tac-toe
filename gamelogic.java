@@ -154,6 +154,51 @@ public class gamelogic {
         }
     }
 
+        public static void checkBigThreeInRow() {
+
+        if (updateboard.wonTiles[0][0].equals(updateboard.wonTiles[0][1]) &&
+                updateboard.wonTiles[0][1].equals(updateboard.wonTiles[0][2]) &&
+                !updateboard.wonTiles[0][0].equals("-")) {
+                
+        } else if (updateboard.wonTiles[1][0].equals(updateboard.wonTiles[1][1]) &&
+                updateboard.wonTiles[1][1].equals(updateboard.wonTiles[1][2]) &&
+                !updateboard.wonTiles[1][0].equals("-")) {
+
+        } else if (updateboard.wonTiles[2][0].equals(updateboard.wonTiles[2][1]) &&
+                updateboard.wonTiles[2][1].equals(updateboard.wonTiles[2][2]) &&
+                !updateboard.wonTiles[2][0].equals("-")) {
+
+        } else if (updateboard.wonTiles[0][0].equals(updateboard.wonTiles[1][0]) &&
+                updateboard.wonTiles[1][0].equals(updateboard.wonTiles[2][0]) &&
+                !updateboard.wonTiles[0][0].equals("-")) {
+
+        } else if (updateboard.wonTiles[0][1].equals(updateboard.wonTiles[1][1]) &&
+                updateboard.wonTiles[1][1].equals(updateboard.wonTiles[2][1]) &&
+                !updateboard.wonTiles[0][1].equals("-")) {
+
+        } else if (updateboard.wonTiles[0][2].equals(updateboard.wonTiles[1][2]) &&
+                updateboard.wonTiles[1][2].equals(updateboard.wonTiles[2][2]) &&
+                !updateboard.wonTiles[0][2].equals("-")) {
+
+        } else if (updateboard.wonTiles[0][0].equals(updateboard.wonTiles[1][1]) &&
+                updateboard.wonTiles[1][1].equals(updateboard.wonTiles[2][2]) &&
+                !updateboard.wonTiles[0][0].equals("-")) {
+
+        } else if (updateboard.wonTiles[0][2].equals(updateboard.wonTiles[1][1]) &&
+                updateboard.wonTiles[1][1].equals(updateboard.wonTiles[2][0]) &&
+                !updateboard.wonTiles[0][2].equals("-")) {
+                
+        } else {
+            winstatus("draw");
+        }
+    }
+
+    public static void winstatus(String player) {
+
+    
+
+    }
+
     public static void check4Empty(){
 
         boolean empty = false;
