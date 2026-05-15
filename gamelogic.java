@@ -43,6 +43,7 @@ public class gamelogic {
     public static void loopX(String[] args) {
 
         System.out.println("Player X");
+        System.out.println("Playing on Board " + (block + 1));
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
 
         check4Empty();
@@ -83,6 +84,7 @@ public class gamelogic {
     public static void loopO(String[] args) {
 
         System.out.println("Player O");
+        System.out.println("Playing on Board " + (block + 1));
         System.out.println("=+=+=+=+=+=+=+=+=+=+=|");
 
         check4Empty();
@@ -236,7 +238,7 @@ public class gamelogic {
         System.exit(0);
     }
 
-    }
+    }  
 
     public static void check4Empty(){
 
