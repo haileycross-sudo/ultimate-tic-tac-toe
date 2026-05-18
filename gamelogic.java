@@ -15,6 +15,12 @@ public class gamelogic {
         }
 
         System.out.println("Game starts in 5th Block");
+        System.out.println("");
+        System.out.println("If at any point you would like to revisit");
+        System.out.println("the instructions, type 0 into any active field");
+        System.out.println("");
+        System.out.println("If at any point you would like to end the game");
+        System.out.println("type -1 into any active field");
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=|");
 
         while (!win) {
@@ -33,7 +39,7 @@ public class gamelogic {
                     System.out.println("Please enter a number between " + min + " and " + max + ".");
                     continue;
                 }
-                return value - 1;
+                return value;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter an integer.");
             }
@@ -48,15 +54,27 @@ public class gamelogic {
 
         check4Empty();
 
-        row = readIndex("Row Number (1-3)", 1, 3);
-        col = readIndex("Column Number (1-3)", 1, 3);
+        int inputRow = readIndex("Row Number (1-3)", -1, 3);
+        int inputCol = readIndex("Column Number (1-3)", -1, 3);
+
+        if (inputRow == -1 || inputCol == -1) {
+            System.out.println("Ending game...");
+            System.exit(0);
+            return;
+        } else if (inputRow == 0 || inputCol == 0) {
+            menus.instructions("gameX", args);
+            loopX(args);
+            return;
+        }
+
+        row = inputRow - 1;
+        col = inputCol - 1;
 
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             System.out.println("Invalid input. Please enter numbers between 1 and 3.");
             loopX(args);
             return;
         } else if (updateboard.board[block][row][col].equals("-")) {
-            updateboard.board[block][row][col] = "X";
             updateboard.draw3DBoard(updateboard.board);
             checkThreeInRow();
             checkBigThreeInRow();
@@ -89,8 +107,21 @@ public class gamelogic {
 
         check4Empty();
 
-        row = readIndex("Row Number (1-3)", 1, 3);
-        col = readIndex("Column Number (1-3)", 1, 3);
+        int inputRow = readIndex("Row Number (1-3)", -1, 3);
+        int inputCol = readIndex("Column Number (1-3)", -1, 3);
+
+        if (inputRow == -1 || inputCol == -1) {
+            System.out.println("Ending game...");
+            System.exit(0);
+            return;
+        } else if (inputRow == 0 || inputCol == 0) {
+            menus.instructions("gameO", args);
+            loopO(args);
+            return;
+        }
+
+        row = inputRow - 1;
+        col = inputCol - 1;
 
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             System.out.println("Invalid input. Please enter numbers between 1 and 3.");
@@ -254,7 +285,7 @@ public class gamelogic {
 
         if (!empty) {
             System.out.println("Block " + (block + 1) + " is full. Choose a different block.");
-            block = readIndex("Block number (1-9)", 1, 9);
+            block = readIndex("Block number (1-9)", 1, 9) - 1;
         }
     }
 }
