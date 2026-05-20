@@ -75,6 +75,7 @@ public class gamelogic {
             loopX(args);
             return;
         } else if (updateboard.board[block][row][col].equals("-")) {
+            updateboard.board[block][row][col] = "X";
             updateboard.draw3DBoard(updateboard.board);
             checkThreeInRow();
             checkBigThreeInRow();
@@ -152,7 +153,7 @@ public class gamelogic {
         block = row * 3 + col;
 } 
 
-    public static void checkThreeInRow() {
+    public static void checkThreeInRow() { // checks various win conditions
 
         if (updateboard.board[block][0][0].equals(updateboard.board[block][0][1]) &&
                 updateboard.board[block][0][1].equals(updateboard.board[block][0][2]) &&
@@ -197,7 +198,7 @@ public class gamelogic {
         }
     }
 
-        public static void checkBigThreeInRow() {
+        public static void checkBigThreeInRow() { // checks various win conditions
 
         if (updateboard.wonTiles[0][0].equals(updateboard.wonTiles[0][1]) &&
                 updateboard.wonTiles[0][1].equals(updateboard.wonTiles[0][2]) &&
@@ -238,7 +239,7 @@ public class gamelogic {
 
     public static boolean isBigBoardFull() {
         for (int b = 0; b < updateboard.board.length; b++) {
-            for (int r = 0; r < updateboard.board[b].length; r++) {
+            for (int r = 0; r < updateboard.board[b].length; r++) {  //checks if board is full
                 for (int c = 0; c < updateboard.board[b][r].length; c++) {
                     if (updateboard.board[b][r][c].equals("-")) {
                         return false;
@@ -252,7 +253,7 @@ public class gamelogic {
     public static void winstatus(String player) {
 
     if(player.equals("draw")){
-        System.out.println("The game is a draw!");
+        System.out.println("The game is a draw!"); //endings
         System.exit(0);
     } else {
 
@@ -276,7 +277,7 @@ public class gamelogic {
         boolean empty = false;
 
         for (int j = 0; j<updateboard.board[block].length; j++) {
-            for (int k = 0; k<updateboard.board[block][j].length; k++) {
+            for (int k = 0; k<updateboard.board[block][j].length; k++) { //checks chosen block for empty spaces to play in
                 if (updateboard.board[block][j][k].equals("-")) {
                     empty = true;
                 }
@@ -285,7 +286,7 @@ public class gamelogic {
 
         if (!empty) {
             System.out.println("Block " + (block + 1) + " is full. Choose a different block.");
-            block = readIndex("Block number (1-9)", 1, 9) - 1;
+            block = readIndex("Block number (1-9)", 1, 9) - 1; //prompts different block selection
         }
     }
 }

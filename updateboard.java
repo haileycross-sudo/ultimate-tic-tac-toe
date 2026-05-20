@@ -9,14 +9,14 @@ public class updateboard {
     
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 3; j++) {
-        for (int k = 0; k < 3; k++) {
+        for (int k = 0; k < 3; k++) { //traverses entire game board array and sets every value to "-"
           board[i][j][k] = "-";
         }
       }
     }
 
     for (int i = 0; i < 3; i++) {
-      for (int j = 0; j < 3; j++) {
+      for (int j = 0; j < 3; j++) { //traverses entire won tiles array and sets every value to "-"
         wonTiles[i][j] = "-";
       }
     }
@@ -31,7 +31,7 @@ public class updateboard {
         for (int blockCol = 0; blockCol < 3; blockCol++) {
           int blockIndex = blockRow * 3 + blockCol;
           for (int col = 0; col < 3; col++) {
-            System.out.print(board[blockIndex][row][col] + " ");
+            System.out.print(board[blockIndex][row][col] + " ");   //initially sets up board
           }
           if (blockCol < 2) {
             System.out.print(" ");

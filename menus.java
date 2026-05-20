@@ -27,30 +27,30 @@ public class menus {
   }
 
   public static void instructions(String calledFrom, String[] args) {
-    System.out.println("Instructions:");
-    System.out.println("1. The game is played on a 3x3 grid of tic-tac-toe boards.");
-    System.out.println("2. Each player takes turns placing their mark (X or O) on the small tic-tac-toe boards.");
-    System.out.println("3. The first player to win three small tic-tac-toe boards in a row wins the game.");
-    System.out.println("4. To make a move, enter the coordinates of the small board and the cell you want to mark (e.g., '1 2' for row 1, column 2).");
-    System.out.println("5. If you want to re-read the instructions, type '0' at any time during the game.");
-    System.out.println("6. If you want to end the game, type '-1' at any time during the game.");
-    System.out.println("");
+      System.out.println("Instructions:");
+      System.out.println("1. The game is played on a 3x3 grid of tic-tac-toe boards.");
+      System.out.println("2. Each player takes turns placing their mark (X or O) on the small tic-tac-toe boards.");
+      System.out.println("3. The first player to win three small tic-tac-toe boards in a row wins the game.");
+      System.out.println("4. To make a move, enter the coordinates of the small board and the cell you want to mark (e.g., '1 2' for row 1, column 2).");
+      System.out.println("5. If you want to re-read the instructions, type '0' at any time during the game.");
+      System.out.println("6. If you want to end the game, type '-1' at any time during the game.");
+      System.out.println("");
     if(calledFrom.startsWith("game")) {
       System.out.println("Press Enter to return to the game...");
-      Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);  //waits for enter
       scanner.nextLine();
       if (calledFrom.equals("gameX")) {
-        gamelogic.loopX(args);
+        gamelogic.loopX(args);  //calls player X turn
       } else if (calledFrom.equals("gameO")) {
-        gamelogic.loopO(args);
+        gamelogic.loopO(args);   //calls player O turn
       } else {
-        gamelogic.main(args);
+        gamelogic.main(args);  //calls main game logic
       }
     } else {
       System.out.println("Press Enter to return to the main menu...");
       Scanner scanner = new Scanner(System.in);
-      scanner.nextLine();
-      menus.main(args);
+      scanner.nextLine();    // waits for player to click enter
+      menus.main(args);   // runs main class from menus
     }
   }
 }
